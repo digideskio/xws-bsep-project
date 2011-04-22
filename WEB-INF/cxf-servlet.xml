@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:jaxws="http://cxf.apache.org/jaxws"
+      xmlns:soap="http://cxf.apache.org/bindings/soap"
+      xmlns:nap="http://team9/ws/nalog_za_placanje"
+      xmlns:rn="http://team9/ws/RTGS_nalog"
+      xmlns:zaz="http://team9/ws/zahtev_za_izvod"
+      xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd
+http://cxf.apache.org/jaxws
+http://cxf.apache.org/schemas/jaxws.xsd">
+
+  <jaxws:server id="faktura" serviceClass="team9.ws.faktura.Faktura" address="/Faktura" wsdlLocation="WEB-INF/wsdl/faktura.wsdl">
+  	<jaxws:serviceBean>
+  		<bean class="team9.ws.faktura.FakturaBean" />
+  	</jaxws:serviceBean>
+  </jaxws:server>
+  
+  <jaxws:server id="nalog_za_placanje" serviceName="nap:Nalog_za_placanjeService" serviceClass="team9.ws.nalog_za_placanje.NalogZaPlacanje" address="/Nalog_za_placanje" wsdlLocation="WEB-INF/wsdl/nalog_za_placanje.wsdl">
+  	<jaxws:serviceBean>
+  		<bean class="team9.ws.nalog_za_placanje.NalogZaPlacanjeBean" />
+  	</jaxws:serviceBean>
+  </jaxws:server>
+  
+  <jaxws:server id="presek" serviceClass="team9.ws.presek.Presek" address="/Presek" wsdlLocation="WEB-INF/wsdl/presek.wsdl">
+  	<jaxws:serviceBean>
+  		<bean class="team9.ws.presek.PresekBean" />
+  	</jaxws:serviceBean>
+  </jaxws:server>
+  
+  <jaxws:server id="rtgs_nalog" serviceName="rn:RTGS_nalogService" serviceClass="team9.ws.rtgs_nalog.RTGSNalog" address="/RTGS_nalog" wsdlLocation="WEB-INF/wsdl/RTGS_nalog.wsdl">
+  	<jaxws:serviceBean>
+  		<bean class="team9.ws.rtgs_nalog.RTGSNalogBean" />
+  	</jaxws:serviceBean>
+  </jaxws:server>
+  
+  <jaxws:server id="zahtev_za_izvod" serviceName="zaz:Zahtev_za_izvodService" serviceClass="team9.ws.zahtev_za_izvod.ZahtevZaIzvod" address="/Zahtev_za_izvod" wsdlLocation="WEB-INF/wsdl/zahtev_za_izvod.wsdl">
+  	<jaxws:serviceBean>
+  		<bean class="team9.ws.zahtev_za_izvod.ZahtevZaIzvodBean" />
+  	</jaxws:serviceBean>
+  </jaxws:server>
+</beans>

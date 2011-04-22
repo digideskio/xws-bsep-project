@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Zahtev_za_izvodService" 
+    targetNamespace="http://team9/ws/zahtev_za_izvod" 
+    xmlns="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:tns="http://team9/ws/zahtev_za_izvod" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema xmlns:tns="http://team9/ws/zahtev_za_izvod"
+            targetNamespace="http://team9/ws/zahtev_za_izvod">
+            <xsd:include schemaLocation="file:///home/gajop/bsep/xws-bsep-project/scheme/zahtev_za_izvod.xsd"/>
+            <xsd:element name="zahtev_za_izvodResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="success" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="zahtev_za_izvod">
+        <part name="parameters" element="tns:zahtev_za_izvod"/>
+    </message>
+    <message name="zahtev_za_izvodResponse">
+        <part name="parameters" element="tns:zahtev_za_izvodResponse"/>
+    </message>
+    <portType name="Zahtev_za_izvod">
+        <operation name="zahtev_za_izvod">
+            <input name="zahtev_za_izvod" message="tns:zahtev_za_izvod"/>
+            <output name="zahtev_za_izvodResponse" message="tns:zahtev_za_izvodResponse"/>
+        </operation>
+    </portType>
+    <binding name="Zahtev_za_izvodServiceSoapBinding" type="tns:Zahtev_za_izvod">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="zahtev_za_izvod">
+            <soap:operation soapAction="" style="document"/>
+            <input name="zahtev_za_izvod">
+                <soap:body use="literal"/>
+            </input>
+            <output name="zahtev_za_izvodResponse">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="Zahtev_za_izvodService">
+        <port name="Zahtev_za_izvodPort" binding="tns:Zahtev_za_izvodServiceSoapBinding">
+            <soap:address location="http://localhost:9090/Zahtev_za_izvodPort"/>
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="FakturaService" 
+    targetNamespace="http://team9/ws/faktura" 
+    xmlns="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:tns="http://team9/ws/faktura" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema xmlns:tns="http://team9/ws/faktura"
+            targetNamespace="http://team9/ws/faktura">
+            <xsd:include schemaLocation="file:///home/gajop/bsep/xws-bsep-project/scheme/faktura.xsd"/>
+            <xsd:element name="fakturaResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="success" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="faktura">
+        <part name="parameters" element="tns:faktura"/>
+    </message>
+    <message name="fakturaResponse">
+        <part name="parameters" element="tns:fakturaResponse"/>
+    </message>
+    <portType name="Faktura">
+        <operation name="faktura">
+            <input name="faktura" message="tns:faktura"/>
+            <output name="fakturaResponse" message="tns:fakturaResponse"/>
+        </operation>
+    </portType>
+    <binding name="FakturaServiceSoapBinding" type="tns:Faktura">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="faktura">
+            <soap:operation soapAction="" style="document"/>
+            <input name="faktura">
+                <soap:body use="literal"/>
+            </input>
+            <output name="fakturaResponse">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="FakturaService">
+        <port name="FakturaPort" binding="tns:FakturaServiceSoapBinding">
+            <soap:address location="http://localhost:9090/FakturaPort"/>
+        </port>
+    </service>
+</definitions>

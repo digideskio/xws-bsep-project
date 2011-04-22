@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Nalog_za_placanjeService" 
+    targetNamespace="http://team9/ws/nalog_za_placanje" 
+    xmlns="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:tns="http://team9/ws/nalog_za_placanje" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema xmlns:tns="http://team9/ws/nalog_za_placanje"
+            targetNamespace="http://team9/ws/nalog_za_placanje">
+            <xsd:include schemaLocation="file:///home/gajop/bsep/xws-bsep-project/scheme/nalog_za_placanje.xsd"/>
+            <xsd:element name="nalog_za_placanjeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="success" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="nalog_za_placanje">
+        <part name="parameters" element="tns:nalog_za_placanje"/>
+    </message>
+    <message name="nalog_za_placanjeResponse">
+        <part name="parameters" element="tns:nalog_za_placanjeResponse"/>
+    </message>
+    <portType name="Nalog_za_placanje">
+        <operation name="nalog_za_placanje">
+            <input name="nalog_za_placanje" message="tns:nalog_za_placanje"/>
+            <output name="nalog_za_placanjeResponse" message="tns:nalog_za_placanjeResponse"/>
+        </operation>
+    </portType>
+    <binding name="Nalog_za_placanjeServiceSoapBinding" type="tns:Nalog_za_placanje">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="nalog_za_placanje">
+            <soap:operation soapAction="" style="document"/>
+            <input name="nalog_za_placanje">
+                <soap:body use="literal"/>
+            </input>
+            <output name="nalog_za_placanjeResponse">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="Nalog_za_placanjeService">
+        <port name="Nalog_za_placanjePort" binding="tns:Nalog_za_placanjeServiceSoapBinding">
+            <soap:address location="http://localhost:9090/Nalog_za_placanjePort"/>
+        </port>
+    </service>
+</definitions>

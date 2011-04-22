@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="PresekService" 
+    targetNamespace="http://team9/ws/presek" 
+    xmlns="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:tns="http://team9/ws/presek" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema xmlns:tns="http://team9/ws/presek"
+            targetNamespace="http://team9/ws/presek">
+            <xsd:include schemaLocation="file:///home/gajop/bsep/xws-bsep-project/scheme/presek.xsd"/>
+            <xsd:element name="presekResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="success" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="presek">
+        <part name="parameters" element="tns:presek"/>
+    </message>
+    <message name="presekResponse">
+        <part name="parameters" element="tns:presekResponse"/>
+    </message>
+    <portType name="Presek">
+        <operation name="presek">
+            <input name="presek" message="tns:presek"/>
+            <output name="presekResponse" message="tns:presekResponse"/>
+        </operation>
+    </portType>
+    <binding name="PresekServiceSoapBinding" type="tns:Presek">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="presek">
+            <soap:operation soapAction="" style="document"/>
+            <input name="presek">
+                <soap:body use="literal"/>
+            </input>
+            <output name="presekResponse">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="PresekService">
+        <port name="PresekPort" binding="tns:PresekServiceSoapBinding">
+            <soap:address location="http://localhost:9090/PresekPort"/>
+        </port>
+    </service>
+</definitions>

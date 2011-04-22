@@ -7,7 +7,7 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="zagljavlje">
+				<xs:element name="zaglavlje">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="dobavljac" type="ucesnik"/>

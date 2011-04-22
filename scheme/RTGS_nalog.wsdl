@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="RTGS_nalogService" 
+    targetNamespace="http://team9/ws/RTGS_nalog" 
+    xmlns="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:tns="http://team9/ws/RTGS_nalog" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema xmlns:tns="http://team9/ws/RTGS_nalog"
+            targetNamespace="http://team9/ws/RTGS_nalog">
+            <xsd:include schemaLocation="file:///home/gajop/bsep/xws-bsep-project/scheme/RTGS_nalog.xsd"/>
+            <xsd:element name="RTGS_nalogResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="success" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="RTGS_nalog">
+        <part name="parameters" element="tns:RTGS_nalog"/>
+    </message>
+    <message name="RTGS_nalogResponse">
+        <part name="parameters" element="tns:RTGS_nalogResponse"/>
+    </message>
+    <portType name="RTGS_nalog">
+        <operation name="RTGS_nalog">
+            <input name="RTGS_nalog" message="tns:RTGS_nalog"/>
+            <output name="RTGS_nalogResponse" message="tns:RTGS_nalogResponse"/>
+        </operation>
+    </portType>
+    <binding name="RTGS_nalogServiceSoapBinding" type="tns:RTGS_nalog">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="RTGS_nalog">
+            <soap:operation soapAction="" style="document"/>
+            <input name="RTGS_nalog">
+                <soap:body use="literal"/>
+            </input>
+            <output name="RTGS_nalogResponse">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="RTGS_nalogService">
+        <port name="RTGS_nalogPort" binding="tns:RTGS_nalogServiceSoapBinding">
+            <soap:address location="http://localhost:9090/RTGS_nalogPort"/>
+        </port>
+    </service>
+</definitions>
