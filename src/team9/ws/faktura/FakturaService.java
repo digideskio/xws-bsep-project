@@ -30,9 +30,9 @@ public class FakturaService
         try {
             URL baseUrl;
             baseUrl = team9.ws.faktura.FakturaService.class.getResource(".");
-            url = new URL(baseUrl, "file:/home/gajop/bsep/xws-bsep-project/scheme/faktura.wsdl");
+            url = new URL(baseUrl, "file:C:\\Users\\Bojan\\Documents\\faks\\2010_11\\Ljetnji\\XML i Web servisi\\projekt\\workspace\\xws-bsep-project\\scheme\\faktura.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/home/gajop/bsep/xws-bsep-project/scheme/faktura.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:C:\\Users\\Bojan\\Documents\\faks\\2010_11\\Ljetnji\\XML i Web servisi\\projekt\\workspace\\xws-bsep-project\\scheme\\faktura.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         FAKTURASERVICE_WSDL_LOCATION = url;

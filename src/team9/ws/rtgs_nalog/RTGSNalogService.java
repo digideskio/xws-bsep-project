@@ -30,9 +30,9 @@ public class RTGSNalogService
         try {
             URL baseUrl;
             baseUrl = team9.ws.rtgs_nalog.RTGSNalogService.class.getResource(".");
-            url = new URL(baseUrl, "file:/home/gajop/bsep/xws-bsep-project/scheme/RTGS_nalog.wsdl");
+            url = new URL(baseUrl, "file:C:\\Users\\Bojan\\Documents\\faks\\2010_11\\Ljetnji\\XML i Web servisi\\projekt\\workspace\\xws-bsep-project\\scheme\\RTGS_nalog.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/home/gajop/bsep/xws-bsep-project/scheme/RTGS_nalog.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:C:\\Users\\Bojan\\Documents\\faks\\2010_11\\Ljetnji\\XML i Web servisi\\projekt\\workspace\\xws-bsep-project\\scheme\\RTGS_nalog.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         RTGSNALOGSERVICE_WSDL_LOCATION = url;

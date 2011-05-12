@@ -30,9 +30,9 @@ public class ZahtevZaIzvodService
         try {
             URL baseUrl;
             baseUrl = team9.ws.zahtev_za_izvod.ZahtevZaIzvodService.class.getResource(".");
-            url = new URL(baseUrl, "file:/home/gajop/bsep/xws-bsep-project/scheme/zahtev_za_izvod.wsdl");
+            url = new URL(baseUrl, "file:C:\\Users\\Bojan\\Documents\\faks\\2010_11\\Ljetnji\\XML i Web servisi\\projekt\\workspace\\xws-bsep-project\\scheme\\zahtev_za_izvod.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/home/gajop/bsep/xws-bsep-project/scheme/zahtev_za_izvod.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:C:\\Users\\Bojan\\Documents\\faks\\2010_11\\Ljetnji\\XML i Web servisi\\projekt\\workspace\\xws-bsep-project\\scheme\\zahtev_za_izvod.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         ZAHTEVZAIZVODSERVICE_WSDL_LOCATION = url;

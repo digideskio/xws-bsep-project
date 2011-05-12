@@ -30,9 +30,9 @@ public class NalogZaPlacanjeService
         try {
             URL baseUrl;
             baseUrl = team9.ws.nalog_za_placanje.NalogZaPlacanjeService.class.getResource(".");
-            url = new URL(baseUrl, "file:/home/gajop/bsep/xws-bsep-project/scheme/nalog_za_placanje.wsdl");
+            url = new URL(baseUrl, "file:C:\\Users\\Bojan\\Documents\\faks\\2010_11\\Ljetnji\\XML i Web servisi\\projekt\\workspace\\xws-bsep-project\\scheme\\nalog_za_placanje.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/home/gajop/bsep/xws-bsep-project/scheme/nalog_za_placanje.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:C:\\Users\\Bojan\\Documents\\faks\\2010_11\\Ljetnji\\XML i Web servisi\\projekt\\workspace\\xws-bsep-project\\scheme\\nalog_za_placanje.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         NALOGZAPLACANJESERVICE_WSDL_LOCATION = url;
